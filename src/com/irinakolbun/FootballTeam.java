@@ -24,12 +24,12 @@ public class FootballTeam {
         for (int i = 1; i < data.length; i++) {
             String[] score = data[i].split(":");
             int teamScore = Integer.parseInt(score[0]);
-            int opponentScore = Integer.parseInt(score[0]);
+            int opponentScore = Integer.parseInt(score[1]);
             if (teamScore > opponentScore)
-                teamTotalScore += 3;
+                this.teamTotalScore += 3;
 
             else if (teamScore == opponentScore)
-                teamTotalScore += 1;
+                this.teamTotalScore += 1;
 
         }
     }
