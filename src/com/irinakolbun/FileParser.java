@@ -12,7 +12,7 @@ public class FileParser {
 
     public FootballTeam [] getFootballTeamsFromFile() throws FileNotFoundException {
         Scanner fileScanner = new Scanner(this.file);
-        int numberOfTeams = fileScanner.nextInt();
+        int numberOfTeams = Integer.parseInt(fileScanner.nextLine());
 
         FootballTeam [] teams = new FootballTeam[numberOfTeams];
         for(int i=0;i<numberOfTeams;i++)

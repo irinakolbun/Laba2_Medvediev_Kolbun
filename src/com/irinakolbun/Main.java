@@ -1,10 +1,5 @@
 package com.irinakolbun;
-
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main {
 
@@ -24,7 +19,6 @@ public class Main {
             outputText += (i + 1) + " place: " + teams[i].getTeamName() + " with score " + teams[i].getTeamTotalScore() + "\n";
         }
         return outputText;
-
     }
 
 }
