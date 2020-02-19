@@ -10,6 +10,14 @@ public class FootballTeam {
 
     }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public int getTeamTotalScore() {
+        return teamTotalScore;
+    }
+
     private void parseData(String inputData) {
         String[] data = inputData.split(",");
         this.teamName = data[0];
@@ -17,12 +25,25 @@ public class FootballTeam {
             String[] score = data[i].split(":");
             int teamScore = Integer.parseInt(score[0]);
             int opponentScore = Integer.parseInt(score[0]);
-            if(teamScore > opponentScore)
+            if (teamScore > opponentScore)
                 teamTotalScore += 3;
 
-            else if(teamScore == opponentScore)
+            else if (teamScore == opponentScore)
                 teamTotalScore += 1;
 
         }
+    }
+
+    public static FootballTeam[] sortTeamsArray(FootballTeam[] teams) {
+        for (int i = 0; i < teams.length - 1; i++) {
+            for (int j = i + 1; j < teams.length; j++){
+                if(teams[i].getTeamTotalScore() < teams[j].getTeamTotalScore()){
+                    FootballTeam deltaTeam = teams[i];
+                    teams[i] = teams[j];
+                    teams[j] = deltaTeam;
+                }
+            }
+        }
+        return teams;
     }
 }
