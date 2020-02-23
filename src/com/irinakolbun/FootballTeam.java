@@ -1,5 +1,7 @@
 package com.irinakolbun;
 
+import java.util.HashMap;
+
 public class FootballTeam {
     private String teamName;
     //private int[][] scores = new int[10][2];
@@ -47,3 +49,5 @@ public class FootballTeam {
         return teams;
     }
 }
+
+
