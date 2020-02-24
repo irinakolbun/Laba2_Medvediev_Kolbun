@@ -8,22 +8,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner csvFilePath = new Scanner(System.in);
-        System.out.println("Enter the path to your file: ");
-        String pathStr = csvFilePath.nextLine();
-        System.out.println("The path is: " + pathStr);
-
-        //String csvFilePath = "inputs/file1.csv";
-        FileParser parser = new FileParser(pathStr);
+        String path = getPathToFile();
+        FileParser parser = new FileParser(path);
         FootballTeam[] footballTeams = parser.getFootballTeamsFromFile();
 
         String text = getFinalScoresTable(footballTeams);
         writeResultsFile(text);
     }
 
-    /*private static String getPathToFile(Scanner csvFilePath) {
-        return csvFilePath.nextLine();
-    }*/
+    private static String getPathToFile() {
+        Scanner scanPath = new Scanner(System.in);
+        System.out.print("Enter the path to your file: ");
+        String pathStr = scanPath.nextLine();
+        return pathStr;
+    }
 
     private static String getFinalScoresTable(FootballTeam[] teams) {
         teams = FootballTeam.sortTeamsArray(teams);
