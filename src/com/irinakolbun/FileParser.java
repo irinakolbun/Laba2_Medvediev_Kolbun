@@ -14,9 +14,10 @@ public class FileParser {
         Scanner fileScanner = new Scanner(this.file);
         int numberOfTeams = Integer.parseInt(fileScanner.nextLine());
 
-        FootballTeam [] teams = new FootballTeam[numberOfTeams];
+        FootballTeam[] teams = new FootballTeam[numberOfTeams];   //Loop through the FootballTeam array
         for(int i=0;i<numberOfTeams;i++)
             teams[i] = new FootballTeam(fileScanner.nextLine());
+        fileScanner.close();
 
         return teams;
     }

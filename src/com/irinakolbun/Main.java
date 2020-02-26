@@ -20,16 +20,17 @@ public class Main {
         Scanner scanPath = new Scanner(System.in);
         System.out.print("Enter the path to your file: ");
         String pathStr = scanPath.nextLine();
+        scanPath.close();
         return pathStr;
     }
 
     private static String getFinalScoresTable(FootballTeam[] teams) {
         teams = FootballTeam.sortTeamsArray(teams);
-        String outputText = "Rating table: \n";
+        StringBuilder outputText = new StringBuilder("Rating table: \n");
         for (int i = 0; i < teams.length; i++) {
-            outputText += (i + 1) + " place: " + teams[i].getTeamName() + " with score " + teams[i].getTeamTotalScore() + "\n";
+            outputText.append(i + 1).append(" place: ").append(teams[i].getTeamName()).append(" with score ").append(teams[i].getTeamTotalScore()).append("\n");
         }
-        return outputText;
+        return outputText.toString();
     }
 
     private static void writeResultsFile(String text) throws IOException {
