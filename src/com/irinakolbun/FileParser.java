@@ -15,7 +15,7 @@ public class FileParser {
         int numberOfTeams = Integer.parseInt(fileScanner.nextLine());
 
         FootballTeam[] teams = new FootballTeam[numberOfTeams];   //Loop through the FootballTeam array
-        for(int i=0;i<numberOfTeams;i++)
+        for(int i=0; i<numberOfTeams; i++)
             teams[i] = new FootballTeam(fileScanner.nextLine());
         fileScanner.close();
 
