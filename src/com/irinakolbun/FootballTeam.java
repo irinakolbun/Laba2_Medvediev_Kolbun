@@ -51,8 +51,6 @@ public class FootballTeam {
             num = num/power;
             result += Integer.parseInt(curNum[0]) + num;
         }
-
-        System.out.println(result);
         return result;
     }
 
