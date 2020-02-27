@@ -2,33 +2,34 @@ package com.irinakolbun;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String path = getPathToFile();
+        String path = getPathToDirectory();
         FileParser parser = new FileParser(path);
-        FootballTeam[] footballTeams = parser.getFootballTeamsFromFile();
+        ArrayList<FootballTeam> footballTeams = parser.getFootballTeamsFromFile();
 
         String text = getFinalScoresTable(footballTeams);
         writeResultsFile(text);
     }
 
-    private static String getPathToFile() {
+    private static String getPathToDirectory() {
         Scanner scanPath = new Scanner(System.in);
-        System.out.print("Enter the path to your file: ");
+        System.out.print("Enter the path to your directory: ");
         String pathStr = scanPath.nextLine();
         scanPath.close();
         return pathStr;
     }
 
-    private static String getFinalScoresTable(FootballTeam[] teams) {
+    private static String getFinalScoresTable(ArrayList<FootballTeam> teams) {
         teams = FootballTeam.sortTeamsArray(teams);
         StringBuilder outputText = new StringBuilder("Rating table: \n");
-        for (int i = 0; i < teams.length; i++) {
-            outputText.append(i + 1).append(" place: ").append(teams[i].getTeamName()).append(" with score ").append(teams[i].getTeamTotalScore()).append("\n");
+        for (int i = 0; i < teams.size(); i++) {
+            outputText.append(i + 1).append(" place: ").append(teams.get(i).getTeamName()).append(" with score ").append(teams.get(i).getTeamTotalScore()).append("\n");
         }
         return outputText.toString();
     }

@@ -1,5 +1,7 @@
 package com.irinakolbun;
 
+import java.util.ArrayList;
+
 public class FootballTeam {
     private String teamName;
     private int teamTotalScore = 0;
@@ -33,13 +35,13 @@ public class FootballTeam {
         }
     }
 
-    public static FootballTeam[] sortTeamsArray(FootballTeam[] teams) {
-        for (int i = 0; i < teams.length - 1; i++) {
-            for (int j = i + 1; j < teams.length; j++){
-                if(teams[i].getTeamTotalScore() < teams[j].getTeamTotalScore()){
-                    FootballTeam deltaTeam = teams[i];
-                    teams[i] = teams[j];
-                    teams[j] = deltaTeam;
+    public static ArrayList<FootballTeam> sortTeamsArray(ArrayList<FootballTeam> teams) {
+        for (int i = 0; i < teams.size() - 1; i++) {
+            for (int j = i + 1; j < teams.size(); j++) {
+                if (teams.get(i).getTeamTotalScore() < teams.get(j).getTeamTotalScore()) {
+                    FootballTeam deltaTeam = teams.get(i);
+                    teams.set(i, teams.get(j));
+                    teams.set(j, deltaTeam);
                 }
             }
         }
